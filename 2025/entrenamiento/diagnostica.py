@@ -45,7 +45,7 @@ def area_triangulo(base: float, altura: float) -> float:
     """
     Calcula el área de un triángulo usando la fórmula: (base * altura) / 2
     """
-    return (base + altura)/2
+    return (base * altura)/2
 
 def contar_vocales(cadena: str) -> int:
     """
@@ -73,7 +73,9 @@ def es_palindromo(cadena: str) -> bool:
     Verifica si una cadena es un palíndromo (se lee igual al derecho y al revés).
     Ignora mayúsculas y espacios.
     """
-    pass
+    cadena = cadena.lower().split()
+    invertida = cadena.reverse()
+    return cadena == invertida
 
 def analizar_temperaturas(temperaturas: list[float]) -> dict:
     """
@@ -83,5 +85,9 @@ def analizar_temperaturas(temperaturas: list[float]) -> dict:
     - 'min': temperatura mínima
     - 'dias_frios': cuántos días estuvieron por debajo de 18°C
     """
-    pass
-
+    promedio = sum(temperaturas) / len(temperaturas)
+    max_temp = max(temperaturas)
+    min_temp = min(temperaturas)
+    cold_days = sum([1 for temp in temperaturas if temp <18])
+    
+    return promedio, max_temp, min_temp, cold_days
