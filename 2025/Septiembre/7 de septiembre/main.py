@@ -89,8 +89,9 @@ class Estudiante:
     def __init__ (self, nombre, edad, materias, notas):
         self.nombre = nombre
         self.edad = edad
-        self.materias = materias
-        self.notas = notas
+        self.materias = list(materias)
+        self.notas = list(notas)
+        self._notas = None
     
     def mostrar_materias(self):
         for indice, materia in enumerate(self.materias):
@@ -101,3 +102,18 @@ class Estudiante:
         return zip(self.materias, self.notas)
     def mejores_notas(self):
         return sorted(self.notas, reverse=True)
+    def notas(self):
+        return print(self.notas)
+
+
+materias = ["Matemáticas", "Programación", "Física"]
+notas = [4.5, 3.8, 4.9]
+
+est = Estudiante("Luis", 19, materias, notas)
+
+# Aquí deberías probar cada método
+print(est.mostrar_materias())
+print(est.promedio())
+print(est.materias_con_notas())
+print(est.mejores_notas())
+print(est.notas())
