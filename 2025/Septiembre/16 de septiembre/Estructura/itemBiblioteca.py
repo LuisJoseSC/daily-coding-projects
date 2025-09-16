@@ -1,6 +1,4 @@
 from abc import ABC, abstractmethod
-from libro import libro
-from revista import revista
 
 class ItemBiblioteca(ABC):
     def __init__(self, codigo: str, titulo: str, anio: int, disponible: bool):
