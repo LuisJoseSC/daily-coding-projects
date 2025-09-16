@@ -103,17 +103,13 @@ class Estudiante:
     def mejores_notas(self):
         return sorted(self.notas, reverse=True)
     def notas(self):
-        return print(self.notas)
-
-
-materias = ["Matemáticas", "Programación", "Física"]
-notas = [4.5, 3.8, 4.9]
-
-est = Estudiante("Luis", 19, materias, notas)
-
-# Aquí deberías probar cada método
-print(est.mostrar_materias())
-print(est.promedio())
-print(est.materias_con_notas())
-print(est.mejores_notas())
-print(est.notas())
+        return self.notas
+    def notas(self, nuevas_notas):
+        
+        if len(nuevas_notas) != len(self.materias):
+            raise ValueError("la lista de notas no coincide con el tamaño de materias.")
+        
+        for nota in nuevas_notas:
+            if not (0.0 <= nota <= 5.0):
+                raise ValueError("notas deben estar entre 0 y 5.")
+        self.notas = nuevas_notas
